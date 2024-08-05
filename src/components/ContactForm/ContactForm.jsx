@@ -3,11 +3,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
 import css from './ContactForm.module.css';
-import { addContact } from '../../redux/contactsSlice';
+import { addContact } from '../../redux/contactsOps';
 
 const FeedbackSchema = Yup.object().shape({
   name: Yup.string().min(3, 'Too short!').max(50, 'Too long!').required('Required'),
-  number: Yup.string().matches(/^\d{3}-\d{2}-\d{2}$/, 'Number must be in the format XXX-XX-XX').min(3, 'Too short!').max(50, 'Too long!').required('Required'),
+  number: Yup.string().matches(/^\d{3}-\d{3}-\d{4}$/, 'Number must be in the format XXX-XXX-XXXX').min(3, 'Too short!').max(50, 'Too long!').required('Required'),
 });
 
 
